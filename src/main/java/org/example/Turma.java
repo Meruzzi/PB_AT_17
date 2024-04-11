@@ -20,7 +20,7 @@ public class Turma {
     }
 
     public void addAluno(Aluno aluno) {
-        if(Alunos.size() >= 10) {
+        if(Alunos.size() < 10) {
             Alunos.add(aluno);
         }
     }
@@ -33,16 +33,11 @@ public class Turma {
     }
 
     public boolean abrirTurma() {
-        int qntAlunos = 0;
-        for (Aluno al : Alunos) {
-            if (al != null) {
-                qntAlunos++;
-            }
-        }
-
-        if (qntAlunos < 11  && qntAlunos > 1) {
+        if (Alunos.size() < 11 && Alunos.size() > 1) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     public void gerarPauta() {
