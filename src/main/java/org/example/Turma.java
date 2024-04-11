@@ -10,29 +10,18 @@ import java.util.List;
 @Setter
 public class Turma {
     private int Codigo;
-    private Aluno[] Alunos;
+    private List<Aluno> Alunos;
     private Professor professor;
     private Disciplina disciplina;
 
     public Turma(int codigo) {
         Codigo = codigo;
-        Alunos = new Aluno[10];
+        Alunos = new ArrayList<>();
     }
 
     public void addAluno(Aluno aluno) {
-        int qntAlunos = 0;
-
-        for (int i = 0; i < Alunos.length; i++) {
-            if (Alunos[i] != null) {
-                qntAlunos++;
-                if (qntAlunos >= 10) {
-                    break;
-                }
-            } else {
-                Alunos[i] = aluno;
-                qntAlunos++;
-                break;
-            }
+        if(Alunos.size() >= 10) {
+            Alunos.add(aluno);
         }
     }
 
